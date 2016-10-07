@@ -10,11 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Demanda {
+public abstract class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-    private long id;
+	@Column(name = "idProduto", unique = true, nullable = false)
+    private long idProduto;
 	
 	@Column(name = "nome", nullable=false)
     private String nome;
@@ -28,11 +28,11 @@ public abstract class Demanda {
 	@Column(name = "prazo", nullable = false)
     private Date prazo;
 
-    public Demanda() {
+    public Produto() {
     }
 
     @SuppressWarnings("deprecation")
-	public Demanda(String nome, double preco, String descricao, Date date) {
+	public Produto(String nome, double preco, String descricao, Date date) {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -43,8 +43,8 @@ public abstract class Demanda {
     /**
      * @return the idDemanda
      */
-    public long getIdDemanda() {
-        return id;
+    public long getIdProduto() {
+        return idProduto;
     }
 
 

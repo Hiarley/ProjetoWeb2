@@ -22,11 +22,11 @@ public class Historico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", unique = true, nullable = false)
-    private long id;
+	@Column(name = "idHistorico", unique = true, nullable = false)
+    private long idHistorico;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pedido", nullable = false)
+	@JoinColumn(name = "idPedido_pedido", nullable = false)
 	private long idPedido;
 	
 	@Column(name = "data", nullable = false)
@@ -58,7 +58,7 @@ public class Historico {
      * @return the idHistorico
      */
     public long getIdHistorico() {
-        return id;
+        return idHistorico;
     }
 
 

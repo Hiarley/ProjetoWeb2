@@ -3,29 +3,54 @@ package dominio;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "pedido")
 public class Pedido {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private long id;
+	@Column(name = "idPedido", nullable = false)
+    private long idPedido;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", nullable = false)
 	private long idUsuarioSolicitante;
+	
+	@Column(name = "dataAbertura", nullable = false)
 	private Date dataAbertura;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_usuario", nullable = false)
     private long idUsuarioDemandando;
+	
+	@Column(name= "descricao", nullable = false)
     private String descricao;
+	
+	@Column(name= "status", nullable = false)
     private char status;
-    private ArrayList<Demanda> listaProdutos;
+	
+	@OneToMany
+	@JoinTable(name = "demanda")
+    private ArrayList<Produto> listaProdutos;
 
     public Pedido() {
     }
 
     public Pedido(long idUsuarioSolicitante, Date dataAbertura,
              String descricao, char status,
-            ArrayList<Demanda> listaProdutos) {
+            ArrayList<Produto> listaProdutos) {
 
         this.idUsuarioSolicitante = idUsuarioSolicitante;
         this.dataAbertura = dataAbertura;
@@ -52,14 +77,14 @@ public class Pedido {
      * @return the idServico
      */
     public long getIdServico() {
-        return id;
+        return idPedido;
     }
 
     /**
      * @param idServico the idServico to set
      */
     public void setIdServico(long idPedido) {
-        this.id = idPedido;
+        this.idPedido = idPedido;
     }
 
     /**
@@ -124,14 +149,14 @@ public class Pedido {
     /**
      * @return the listaProdutos
      */
-    public ArrayList<Demanda> getListaProdutos() {
+    public ArrayList<Produto> getListaProdutos() {
         return listaProdutos;
     }
 
     /**
      * @param listaProdutos the listaProdutos to set
      */
-    public void setListaProdutos(ArrayList<Demanda> listaProdutos){
+    public void setListaProdutos(ArrayList<Produto> listaProdutos){
 
         this.listaProdutos = listaProdutos;
     }
