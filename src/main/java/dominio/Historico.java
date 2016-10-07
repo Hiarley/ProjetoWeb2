@@ -2,7 +2,15 @@ package dominio;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -10,45 +18,49 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Historico {
+
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", unique = true, nullable = false)
+    private long id;
 	
-    private long idDemanda;
-    private long idHistorico;
+	@ManyToOne
+	@JoinColumn(name = "id_pedido", nullable = false)
+	private long idPedido;
+	
+	@Column(name = "data", nullable = false)
     private Date dataModificaco;
+	
+	@Column(name = "descricao", nullable = false)
     private String descricao;
-    private Usuario usuarioDemandado;
+	
+	@OneToOne
+	@JoinColumn(name = "id_usuario", nullable = false)
+    private long idUsuario;
 
     public Historico() {
     }
 
-    public Historico(long idDemanda, long idHistorico, Date dataModificaco, String descricao, Usuario usuarioSolicitante) {
-        this.idDemanda = idDemanda;
-        this.idHistorico = idHistorico;
+    public Historico(long idProduto, long idHistorico, Date dataModificaco, String descricao, long idUsuario) {
+        this.idPedido = idProduto;
         this.dataModificaco = dataModificaco;
         this.descricao = descricao;
-        this.usuarioDemandado = usuarioSolicitante;
+        this.idUsuario = idUsuario;
     }
 
-    public long getIdDemanda() {
-        return idDemanda;
+    public long getIdPedido() {
+        return idPedido;
     }
 
-    public void setIdDemanda(long idDemanda){
-        this.idDemanda = idDemanda;
-    }
     
     /**
      * @return the idHistorico
      */
     public long getIdHistorico() {
-        return idHistorico;
+        return id;
     }
 
-    /**
-     * @param idHistorico the idHistorico to set
-     */
-    public void setIdHistorico(long idHistorico){
-        this.idHistorico = idHistorico;
-    }
 
     /**
      * @return the dataModificaco
@@ -81,15 +93,10 @@ public class Historico {
     /**
      * @return the usuarioDemandado
      */
-    public Usuario getUsuarioSolicitante() {
-        return usuarioDemandado;
+    public long getUsuario() {
+        return idUsuario;
     }
 
-    /**
-     * @param usuarioSolicitante the usuarioDemandado to set
-     */
-    public void setUsuarioSolicitante(Usuario usuarioSolicitante){
-        this.usuarioDemandado = usuarioSolicitante;
-    }
+
     
 }
