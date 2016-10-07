@@ -42,7 +42,7 @@ public class Pedido {
     private char status;
 	
 	@OneToMany
-	@JoinTable(name = "demanda")
+	@JoinTable(name = "produto")
     private ArrayList<Produto> listaProdutos;
 
     public Pedido() {

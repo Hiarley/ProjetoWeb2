@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
-public abstract class Produto {
+@Entity
+public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "idProduto", unique = true, nullable = false)
@@ -92,10 +92,6 @@ public abstract class Produto {
 
         this.descricao = descricao;
     }
-
-    
-    
-    public abstract boolean validar();
 
     /**
      * @return the prazo
