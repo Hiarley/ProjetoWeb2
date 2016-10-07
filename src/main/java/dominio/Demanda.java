@@ -9,22 +9,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-@Entity
 @MappedSuperclass
 public abstract class Demanda {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", unique = true, nullable = false)
     private long id;
+	
+	@Column(name = "nome", nullable=false)
     private String nome;
+	
+	@Column(name = "preco", nullable=false)
     private double preco;
+	
+	@Column(name = "descricao", nullable=false)
     private String descricao;
+	
+	@Column(name = "prazo", nullable = false)
     private Date prazo;
 
     public Demanda() {
     }
 
-    public Demanda(String nome, double preco, String descricao, Date date) {
+    @SuppressWarnings("deprecation")
+	public Demanda(String nome, double preco, String descricao, Date date) {
         this.nome = nome;
         this.preco = preco;
         this.descricao = descricao;
@@ -39,13 +47,6 @@ public abstract class Demanda {
         return id;
     }
 
-    /**
-     * @param idDemanda the idDemanda to set
-     */
-    public void setIdDemanda(long idDemanda){
-
-        this.id = id;
-    }
 
     /**
      * @return the nome
