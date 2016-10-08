@@ -8,13 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "produto")
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idProduto", unique = true, nullable = false)
-    private long idProduto;
+	@Column(name = "id_Produto", unique = true, nullable = false)
+    private long id;
 	
 	@Column(name = "nome", nullable=false)
     private String nome;
@@ -44,7 +46,7 @@ public class Produto {
      * @return the idDemanda
      */
     public long getIdProduto() {
-        return idProduto;
+        return id;
     }
 
 

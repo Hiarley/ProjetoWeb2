@@ -22,12 +22,12 @@ public class Historico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "idHistorico", unique = true, nullable = false)
-    private long idHistorico;
+	@Column(name = "id_Historico", unique = true, nullable = false)
+    private long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "idPedido_pedido", nullable = false)
-	private long idPedido;
+	@JoinColumn(name = "id_Pedido_pedido", nullable = false)
+	private long id_Pedido;
 	
 	@Column(name = "data", nullable = false)
     private Date dataModificaco;
@@ -35,22 +35,22 @@ public class Historico {
 	@Column(name = "descricao", nullable = false)
     private String descricao;
 	
-	@OneToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
+	//@OneToOne
+	//@JoinColumn(name = "id_usuario", nullable = false)
     private long idUsuario;
 
     public Historico() {
     }
 
     public Historico(long idProduto, long idHistorico, Date dataModificaco, String descricao, long idUsuario) {
-        this.idPedido = idProduto;
+        this.id_Pedido = idProduto;
         this.dataModificaco = dataModificaco;
         this.descricao = descricao;
         this.idUsuario = idUsuario;
     }
 
     public long getIdPedido() {
-        return idPedido;
+        return id_Pedido;
     }
 
     
@@ -58,7 +58,7 @@ public class Historico {
      * @return the idHistorico
      */
     public long getIdHistorico() {
-        return idHistorico;
+        return id;
     }
 
 
