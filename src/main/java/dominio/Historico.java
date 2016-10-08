@@ -25,8 +25,7 @@ public class Historico {
 	@Column(name = "id_Historico", unique = true, nullable = false)
     private long id;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_Pedido_pedido", nullable = false)
+	@JoinColumn(name = "id_pedido", nullable = false)
 	private long id_Pedido;
 	
 	@Column(name = "data", nullable = false)
@@ -35,8 +34,8 @@ public class Historico {
 	@Column(name = "descricao", nullable = false)
     private String descricao;
 	
-	//@OneToOne
-	//@JoinColumn(name = "id_usuario", nullable = false)
+	
+	@JoinColumn(name = "id_usuario", nullable = false)
     private long idUsuario;
 
     public Historico() {

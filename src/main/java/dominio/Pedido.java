@@ -40,8 +40,7 @@ public class Pedido {
 	@Column(name= "status", nullable = false)
     private char status;
 	
-	//@OneToMany
-	//@JoinTable(name = "produto")
+	
     private ArrayList<Produto> listaProdutos;
 
     public Pedido() {
