@@ -8,12 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,16 +17,11 @@ public class Pedido {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "id_Pedido", nullable = false)
     private long id;
-
-	@Column(name = "id_Solicitante", nullable=false)
-	private long id_UsuarioSolicitante;
 	
 	@Column(name = "dataAbertura", nullable = false)
 	private Date dataAbertura;
 	
 
-	@Column(name = "id_Demandado", nullable=false)
-    private long id_UsuarioDemandando;	
 	
 	@Column(name= "descricao", nullable = false)
     private String descricao;
@@ -46,30 +35,18 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(long idUsuarioSolicitante, Date dataAbertura,
+    public Pedido(Usuario usuarioSolicitante, Date dataAbertura,
              String descricao, char status,
             ArrayList<Produto> listaProdutos) {
 
-        this.id_UsuarioSolicitante = idUsuarioSolicitante;
         this.dataAbertura = dataAbertura;
         this.descricao = descricao;
         this.status = status;
         this.listaProdutos = listaProdutos;
     }
 
-    /**
-     * @return the idUsuarioSolicitante
-     */
-    public long getIdUsuarioSolicitante() {
-        return id_UsuarioSolicitante;
-    }
 
-    /**
-     * @param idUsuarioSolicitante the idUsuarioSolicitante to set
-     */
-    public void setIdUsuarioSolicitante(long idUsuarioSolicitante) {
-        this.id_UsuarioSolicitante = idUsuarioSolicitante;
-    }
+
 
     /**
      * @return the idServico
@@ -97,20 +74,6 @@ public class Pedido {
      */
     public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
-    }
-
-    /**
-     * @return the idUsuarioServicondo
-     */
-    public long getIdUsuarioDemandando() {
-        return id_UsuarioDemandando;
-    }
-
-    /**
-     * @param idUsuarioServicondo the idUsuarioServicondo to set
-     */
-    public void setIdUsuarioDemandando(long idUsuarioDemandando) {
-        this.id_UsuarioDemandando = idUsuarioDemandando;
     }
 
     /**
