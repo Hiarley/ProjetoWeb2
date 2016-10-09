@@ -1,8 +1,10 @@
 package dominio;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,9 +25,13 @@ public class Pedido {
 	private long id;
 
 	@ManyToOne
-	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+	@JoinColumn(name = "id_usuarioSolicitante", referencedColumnName = "id_usuario")
 	private Usuario usuarioSolicitante;
 
+	@ManyToOne
+	@JoinColumn(name = "id_usuarioDemandado", referencedColumnName = "id_usuario")
+	private Usuario usuarioDemandado;
+	
 	@Column(name = "dataAbertura", nullable = false)
 	private Date dataAbertura;
 
@@ -33,8 +40,9 @@ public class Pedido {
 
 	@Column(name = "status", nullable = false)
 	private char status;
-
-	private ArrayList<Produto> listaProdutos;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	private Collection<Produto> listaProdutos;
 
 	public Pedido() {
 	}
@@ -114,7 +122,7 @@ public class Pedido {
 	/**
 	 * @return the listaProdutos
 	 */
-	public ArrayList<Produto> getListaProdutos() {
+	public Collection<Produto> getListaProdutos() {
 		return listaProdutos;
 	}
 
