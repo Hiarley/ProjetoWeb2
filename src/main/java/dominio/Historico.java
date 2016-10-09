@@ -45,7 +45,18 @@ public class Historico {
         this.idUsuario = idUsuario;
     }
 
-    public long getIdPedido() {
+    
+    
+    
+    public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getIdPedido() {
         return id_Pedido;
     }
 

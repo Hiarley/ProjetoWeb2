@@ -11,7 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -56,19 +55,14 @@ public class Pedido {
 		this.listaProdutos = listaProdutos;
 	}
 
-	/**
-	 * @return the idServico
-	 */
-	public long getIdServico() {
+	
+	
+	public long getId() {
 		return id;
 	}
 
-	/**
-	 * @param idServico
-	 *            the idServico to set
-	 */
-	public void setIdServico(long idPedido) {
-		this.id = idPedido;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	/**
