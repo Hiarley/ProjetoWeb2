@@ -11,8 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -41,8 +44,16 @@ public class Pedido {
 	private char status;
 	
 	@ManyToMany(cascade=CascadeType.ALL)
+	@JoinTable(name = "produto_edido", joinColumns = {@JoinColumn(name = "id_pedido")}, inverseJoinColumns = {@JoinColumn(name = "id_produto")})
 	private Collection<Produto> listaProdutos;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private Collection<Historico> listaHistoricos;
 
+	@OneToOne
+	@JoinColumn(name = "id_Endereco")
+	private Endereco endereco;
+	
 	public Pedido() {
 	}
 

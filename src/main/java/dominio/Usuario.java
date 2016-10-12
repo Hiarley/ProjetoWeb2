@@ -30,6 +30,12 @@ public class Usuario {
 
 	@Column(name = "senha", nullable=false)
 	private String senha;
+	
+	@Column(name = "cpf", nullable = false)
+	private String cpf;
+	
+	@Column(name = "tipoUsuario", nullable = false)
+	private int tipoUsuario;
 
 	public Usuario(String nome, String endereco, String telefone, String login, String senha) {
 		this.nome = nome;
@@ -131,5 +137,23 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public int getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(int tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
+	
 
 }

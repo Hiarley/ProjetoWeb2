@@ -34,9 +34,12 @@ public class UsuarioMB {
 	public Usuario getUsuario(String login){
 		return usuarioDAO.buscarLogin(login);
 	}
+	
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 
 	public List<Usuario> getListaUsuarios(){
 		setListaUsuarios(usuarioDAO.listar());
