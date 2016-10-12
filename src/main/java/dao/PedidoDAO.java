@@ -10,7 +10,7 @@ import javax.persistence.Query;
 
 import dominio.Pedido;
 
-@Stateless
+
 public class PedidoDAO {
 	@PersistenceContext
 	private EntityManager em;
