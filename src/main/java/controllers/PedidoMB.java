@@ -3,11 +3,14 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import dao.PedidoDAO;
 import dominio.Pedido;
 
+
+@ManagedBean
 public class PedidoMB {
 
 	

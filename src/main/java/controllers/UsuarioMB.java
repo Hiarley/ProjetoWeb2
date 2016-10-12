@@ -13,7 +13,6 @@ import dao.UsuarioDAO;
 import dominio.Usuario;
 
 @ManagedBean
-@RequestScoped
 public class UsuarioMB {
 	private Usuario usuario;
 	

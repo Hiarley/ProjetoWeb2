@@ -3,7 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/include/template.xhtml">
-	
+
 	<ui:define name="titulo">
 		<title>Login</title>
 	</ui:define>
@@ -11,23 +11,24 @@
 	<ui:define name="conteudo">
 		<h:form>
 			<h1>Bem-vindo!</h1>
-			
+
 			<h:messages />
 			<fieldset>
 				<p>Login:</p>
 				<p>
-					<h:inputText value="Teste" 
-						required="true" requiredMessage="Login obrigatório" />
+					<h:inputText value="Teste" required="true"
+						requiredMessage="Login obrigatório" />
 				</p>
-				
+
 				<p>Senha:</p>
 				<p>
-					<h:inputSecret value="Teste" 
-						required="true" requiredMessage="Senha obrigatória" />
+					<h:inputSecret value="Teste" required="true"
+						requiredMessage="Senha obrigatória" />
 				</p>
-				
-				<p><h:commandButton action="Teste" 
-					value="Login" /></p>
+
+				<p>
+					<h:commandButton action="Teste" value="Login" />
+				</p>
 			</fieldset>
 		</h:form>
 	</ui:define>
