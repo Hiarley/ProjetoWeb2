@@ -44,7 +44,7 @@ public class Pedido {
 	private char status;
 	
 	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name = "produto_edido", joinColumns = {@JoinColumn(name = "id_pedido")}, inverseJoinColumns = {@JoinColumn(name = "id_produto")})
+	@JoinTable(name = "pedido_produto", joinColumns = {@JoinColumn(name = "pedido_id")}, inverseJoinColumns = {@JoinColumn(name = "produto_id")})
 	private Collection<Produto> listaProdutos;
 	
 	@OneToMany(cascade = CascadeType.ALL)
