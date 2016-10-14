@@ -1,15 +1,18 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
 import dao.ProdutoDAO;
 import dominio.Produto;
 
 @ManagedBean
+@RequestScoped
 public class ProdutoMB {
 	
 	
@@ -20,9 +23,15 @@ public class ProdutoMB {
 	private List<Produto> listaProdutos;
 	
 	
-	public ProdutoMB() {
+	public  ProdutoMB() {
 		produto = new Produto();
 		listaProdutos = new ArrayList<Produto>(); 
+	}
+	
+	public String inserir(){
+		produto.setPrazo(new Date());
+		produtoDAO.salvar(produto);
+		return "Cadastrado com sucesso";
 	}
 	
 	public Produto getProduto() {

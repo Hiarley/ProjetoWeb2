@@ -14,21 +14,23 @@
 
 			<h:messages />
 			<fieldset>
-				<p>Login:</p>
-				<p>
-					<h:inputText value="Teste" required="true"
-						requiredMessage="Login obrigatório" />
-				</p>
+				<p>Nome:</p>
+				<h:inputText value="#{produtoMB.produto.nome}" required="true"
+					requiredMessage="Login obrigatório" />
 
-				<p>Senha:</p>
+
+				<p>Preço:</p>
 				<p>
-					<h:inputSecret value="Teste" required="true"
+					<h:inputText value="#{produtoMB.produto.preco}" required="true"
 						requiredMessage="Senha obrigatória" />
 				</p>
+				<p>Descrição:</p>
+				<h:inputText value="#{produtoMB.produto.descricao}" required="true"
+					requiredMessage="Login obrigatório" />
 
-				<p>
-					<h:commandButton action="Teste" value="Login" />
-				</p>
+
+				<h:commandButton action="#{produtoMB.inserir}" value="Login" />
+				
 			</fieldset>
 		</h:form>
 	</ui:define>
