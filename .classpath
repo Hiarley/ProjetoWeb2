@@ -28,5 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Eduardo/Downloads/BootsFaces-OSP-0.9.1-dist.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
