@@ -37,12 +37,14 @@ public class Usuario {
 	@Column(name = "tipoUsuario", nullable = false)
 	private int tipoUsuario;
 
-	public Usuario(String nome, String endereco, String telefone, String login, String senha) {
+	public Usuario(String nome, String cpf, int tipoUsuario, String endereco, String telefone, String login, String senha) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.login = login;
 		this.senha = senha;
+		this.cpf = cpf;
+		this.tipoUsuario = tipoUsuario;
 	}
 
 	public Usuario() {

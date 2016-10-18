@@ -18,19 +18,37 @@
 			</b:row>
 			<hr />
 			<b:row>
-				<b:buttonGroup>
-					<b:button value="Cadastrar usuário" look="success" />
-					<b:button value="Cadastrar produto" look="primary" />
-					<b:button value="Cadastrar pedido" look="warning" />
-				</b:buttonGroup>
+				<h:form>
+					<h:commandLink value="Cadastrar Usuário"
+						action="/interna/cadastro_usuario.xhtml"
+						styleClass="btn btn-sm btn-success active navbar-right"
+						role="button" />
+					<h:commandLink value="Cadastrar Produto"
+						action="/interna/cadastro_produto.xhtml"
+						styleClass="btn btn-sm btn-primary active navbar-right"
+						role="button" />
+					<h:commandLink value="Cadastrar Pedido"
+						action="/interna/cadastro_pedido.xhtml"
+						styleClass="btn btn-sm btn-warning active navbar-right"
+						role="button"  />
+				</h:form>
 			</b:row>
 			<hr />
 			<b:row>
-				<b:buttonGroup>
-					<b:button value="Listar usuários" look="success" />
-					<b:button value="Listar produtos" look="primary" />
-					<b:button value="Listar pedidos" look="warning" />
-				</b:buttonGroup>
+				<h:form>
+					<h:commandLink value="Listar Usuário"
+						action="/interna/lista_usuarios.xhtml"
+						styleClass="btn btn-sm btn-success active navbar-right"
+						role="button" />
+					<h:commandLink value="Listar Produto"
+						action="/interna/lista_produtos.xhtml"
+						styleClass="btn btn-sm btn-primary active navbar-right"
+						role="button" />
+					<h:commandLink value="Listar Pedido"
+						action="/interna/lista_pedidos.xhtml"
+						styleClass="btn btn-sm btn-warning active navbar-right"
+						role="button" />
+				</h:form>
 			</b:row>
 			<hr />
 			<b:row>

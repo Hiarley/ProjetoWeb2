@@ -50,6 +50,11 @@ public class UsuarioMB {
 		this.listaUsuarios = listaUsuarios;
 	}
 	
+	public String cadastrarUsuario(){
+		usuario.setTipoUsuario(1);
+		usuarioDAO.salvar(usuario);
+		return "Cadastrado com sucesso";
+	}	
 	
 	public String login() {
 		if (usuario.getLogin().equals("admin") && 

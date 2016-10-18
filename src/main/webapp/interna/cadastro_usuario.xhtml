@@ -15,9 +15,13 @@
 			CADASTRAR USUÁRIO
 			<hr />
 			<h:form>
+
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Nome:" />
-					<b:inputText value="#{usuarioMB.usuario.nome}" />
+					<b:inputText value="#{usuarioMB.usuario.nome}" required="true"
+						requiredMessage="Nome obrigatório" />
+					<h:outputLabel value="CPF:" />
+					<b:inputText value="#{usuarioMB.usuario.cpf}" />
 					<h:outputLabel value="Telefone:" />
 					<b:inputText value="#{usuarioMB.usuario.endereco}" />
 					<h:outputLabel value="Endereço:" />
@@ -27,9 +31,15 @@
 					<h:outputLabel value="Senha:" />
 					<b:inputText value="#{usuarioMB.usuario.senha}" />
 				</h:panelGrid>
+				<p />
+				<b:row>
+					<h:messages />
+				</b:row>
+				<h:commandButton action="#{usuarioMB.cadastrarUsuario}"
+					value="Cadastrar!" />
+				<b:button action="#{usuarioMB.cadastrarUsuario}" value="Cadastrar!" />
 			</h:form>
-			<p />
-			<b:button value="Cadastrar usuário" look="success" />
+
 		</center>
 	</b:container>
 </h:body>
