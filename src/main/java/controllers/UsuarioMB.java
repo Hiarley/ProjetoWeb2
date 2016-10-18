@@ -13,6 +13,7 @@ import dao.UsuarioDAO;
 import dominio.Usuario;
 
 @ManagedBean
+@RequestScoped
 public class UsuarioMB {
 	private Usuario usuario;
 	
@@ -53,7 +54,7 @@ public class UsuarioMB {
 	public String login() {
 		if (usuario.getLogin().equals("admin") && 
 			usuario.getSenha().equals("admin")) {
-			return "/interna/cadastra.jsf";
+			return "/interna/painel.jsf";
 		} else {
 			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);

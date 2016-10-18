@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Usuários</title>
+</h:head>
+
+<h:body>
+	<h3>Usuários cadastrados</h3>
+	
+	<h:form>
+		<h:dataTable id="table1" value="#{usuarioMB.listaUsuarios}" var="item"
+			border="1">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nome" />
+				</f:facet>
+				<h:outputText value="#{a}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Endereço" />
+				</f:facet>
+				<h:outputText value="#{a}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Telefone" />
+				</f:facet>
+				<h:outputText value="#{a}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Username" />
+				</f:facet>
+				<h:outputText value="#{a}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Senha" />
+				</f:facet>
+				<h:outputText value="#{a}" />
+			</h:column>
+		</h:dataTable>
+		<br/><br/>
+		<h:commandButton value="Voltar ao painel" action="painel" />
+	</h:form>
+</h:body>
+
+</html>

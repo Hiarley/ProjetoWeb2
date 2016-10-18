@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Login</title>
+</h:head>
+
+<h:body
+	style="padding: 50px 50px 50px 50px; margin: 0 auto; text-align:center;">
+	<h:form>
+		<b:row>
+			<b:inputText value="#{usuarioMB.usuario.login}" required="true"
+				requiredMessage="Login obrigatória" placeholder="Usuário" span="4"
+				offset="4">
+				<f:facet name="prepend">
+					<b:icon name="user" />
+				</f:facet>
+			</b:inputText>
+		</b:row>
+		<b:row>
+			<b:inputSecret value="#{usuarioMB.usuario.senha}" required="true"
+				requiredMessage="Senha obrigatória" placeholder="Senha" span="4"
+				offset="4">
+				<f:facet name="prepend">
+					<b:iconAwesome name="key" />
+				</f:facet>
+			</b:inputSecret>
+		</b:row>
+		<b:row>
+			<h:messages />
+		</b:row>
+		<b:row>
+			<b:commandButton action="#{usuarioMB.login}"  value="Login"
+				look="info" icon="chevron-right" iconAlign="right" />
+		</b:row>
+	</h:form>
+</h:body>
+
+</html>

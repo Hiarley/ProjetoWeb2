@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Cadastrar produto</title>
+</h:head>
+
+<h:body>
+	<h3>Cadastrar produto</h3>
+	<h:form>
+		<h:outputLabel value="Nome: " />
+		<h:inputText value="#{ProdutoMB.produto.nome}" />
+		<br/><br/>
+		<h:outputLabel value="Preço: " />
+		<h:inputText value="#{ProdutoMB.produto.preco}" />
+		<br/><br/>
+		<h:outputLabel value="Descrição: " />
+		<h:inputText value="#{ProdutoMB.produto.descricao}" />
+		<br/><br/>
+		<h:outputLabel value="Data: " />
+		<h:inputText value="#{ProdutoMB.produto.prazo}" />
+		<br/><br/>
+		<h:commandButton value="Cadastrar" action="cadastro_sucesso" />
+	</h:form>
+</h:body>
+
+</html>

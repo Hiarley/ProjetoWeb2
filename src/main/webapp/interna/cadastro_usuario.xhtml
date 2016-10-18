@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Cadastrar usuário</title>
+</h:head>
+
+<h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
+	<b:container>
+		<center>
+			<h3>Cadastrar usuário</h3>
+			<h:form>
+				<h:outputLabel value="Nome: " />
+				<h:inputText value="#{UsuarioMB.usuario.nome}" />
+				<br />
+				<br />
+				<h:outputLabel value="Endereço: " />
+				<h:inputText value="#{UsuarioMB.usuario.endereco}" />
+				<br />
+				<br />
+				<h:outputLabel value="Telefone: " />
+				<h:inputText value="#{UsuarioMB.usuario.telefone}" />
+				<br />
+				<br />
+				<h:outputLabel value="Username: " />
+				<h:inputText value="#{UsuarioMB.usuario.login}" />
+				<br />
+				<br />
+				<h:outputLabel value="Senha: " />
+				<h:inputSecret value="#{UsuarioMB.usuario.senha}" />
+				<br />
+				<br />
+				<h:commandButton value="Cadastrar" action="cadastro_sucesso" />
+			</h:form>
+		</center>
+	</b:container>
+</h:body>
+
+</html>

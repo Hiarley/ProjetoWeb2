@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<title>Painel de Controle de #{usuarioMB.usuario.nome}</title>
+</h:head>
+
+<h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
+	<b:container>
+		<center>
+			<b:row>
+				<h2>Bem-vindo, #{usuarioMB.usuario.nome}!</h2>
+				<p>PAINEL DE CONTROLE ADMINISTRATIVO</p>
+			</b:row>
+			<hr />
+			<b:row>
+				<b:buttonGroup>
+					<b:button value="Cadastrar usuário" look="success" />
+					<b:button value="Cadastrar produto" look="primary" />
+					<b:button value="Cadastrar pedido" look="warning" />
+				</b:buttonGroup>
+			</b:row>
+			<hr />
+			<b:row>
+				<b:buttonGroup>
+					<b:button value="Listar usuários" look="success" />
+					<b:button value="Listar produtos" look="primary" />
+					<b:button value="Listar pedidos" look="warning" />
+				</b:buttonGroup>
+			</b:row>
+			<hr />
+			<b:row>
+				<b:button value="Sair" />
+			</b:row>
+		</center>
+	</b:container>
+</h:body>
+
+</html>
