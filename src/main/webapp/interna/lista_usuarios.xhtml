@@ -1,52 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-	<title>Usuários</title>
+	<title>Lista de usuários</title>
 </h:head>
 
-<h:body>
-	<h3>Usuários cadastrados</h3>
-	
-	<h:form>
-		<h:dataTable id="table1" value="#{usuarioMB.listaUsuarios}" var="item"
-			border="1">
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Nome" />
-				</f:facet>
-				<h:outputText value="#{a}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Endereço" />
-				</f:facet>
-				<h:outputText value="#{a}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Telefone" />
-				</f:facet>
-				<h:outputText value="#{a}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Username" />
-				</f:facet>
-				<h:outputText value="#{a}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Senha" />
-				</f:facet>
-				<h:outputText value="#{a}" />
-			</h:column>
-		</h:dataTable>
-		<br/><br/>
-		<h:commandButton value="Voltar ao painel" action="painel" />
-	</h:form>
+<h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
+	<b:container>
+		<center>
+			LISTA DE USUÁRIOS CADASTRADOS
+			<hr />
+			<b:dataTable value="#{usuarioMB.listaUsuarios}" var="usuario"
+				fixedHeader="true" scroll-size="400px" scroll-x="false"
+				responsive="true" searching="false">
+				<h:column value="#{usuario.nome}" />
+				<h:column value="#{usuario.endereco}" />
+				<h:column value="#{usuario.telefone}" />
+				<h:column value="#{usuario.login}" />
+			</b:dataTable>
+			<p />
+			<b:button value="Voltar ao painel" />
+		</center>
+	</b:container>
 </h:body>
 
 </html>

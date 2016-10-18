@@ -1,23 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
 	<title>Cadastrar pedido</title>
 </h:head>
 
-<h:body>
-	<h3>Cadastrar pedido</h3>
-		<h:outputLabel value="Data: " />
-		<h:inputText value="#{PedidoMB.pedido.dataAbertura}" />
-		<br/><br/>
-		<h:outputLabel value="Descrição: " />
-		<h:inputText value="#{PedidoMB.pedido.descricao}" />
-		<br/><br/>
-		<h:outputLabel value="Situação: " />
-		<h:inputText value="#{PedidoMB.pedido.status}" />
-		<br/><br/>
-		<h:commandButton value="Cadastrar" action="cadastro_sucesso" />
+<h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
+	<b:container>
+		<center>
+			CADASTRAR PEDIDO
+			<hr />
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Nome:" />
+					<b:inputText value="#{pedidoMB.pedido.dataAbertura}" />
+					<h:outputLabel value="Preço" />
+					<b:inputText value="#{pedidoMB.pedido.descricao}" />
+					<h:outputLabel value="Descrição:" />
+					<b:inputText value="#{pedidoMB.pedido.status}" />
+				</h:panelGrid>
+			</h:form>
+			<p />
+			<b:button value="Cadastrar pedido" look="warning" />
+		</center>
+	</b:container>
 </h:body>
 
 </html>
