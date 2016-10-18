@@ -21,15 +21,20 @@
 					<b:inputText value="#{usuarioMB.usuario.nome}" required="true"
 						requiredMessage="Nome obrigatório" />
 					<h:outputLabel value="CPF:" />
-					<b:inputText value="#{usuarioMB.usuario.cpf}" />
-					<h:outputLabel value="Telefone:" />
-					<b:inputText value="#{usuarioMB.usuario.endereco}" />
+					<b:inputText value="#{usuarioMB.usuario.cpf}" required="true"
+						requiredMessage="CPF obrigatório" />
 					<h:outputLabel value="Endereço:" />
-					<b:inputText value="#{usuarioMB.usuario.telefone}" />
+					<b:inputText value="#{usuarioMB.usuario.endereco}" required="true"
+						requiredMessage="Endereço obrigatório" />
+					<h:outputLabel value="Telefone:" />
+					<b:inputText value="#{usuarioMB.usuario.telefone}" required="true"
+						requiredMessage="Telefone obrigatório" />
 					<h:outputLabel value="Username:" />
-					<b:inputText value="#{usuarioMB.usuario.login}" />
+					<b:inputText value="#{usuarioMB.usuario.login}" required="true"
+						requiredMessage="Login obrigatório" />
 					<h:outputLabel value="Senha:" />
-					<b:inputText value="#{usuarioMB.usuario.senha}" />
+					<b:inputText value="#{usuarioMB.usuario.senha}" required="true"
+						requiredMessage="Senha obrigatório" />
 				</h:panelGrid>
 				<p />
 				<b:row>
