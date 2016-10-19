@@ -29,6 +29,11 @@ private Pedido pedido;
 		return pedidoDAO.buscarUsuarioSolicitanteNome(usuarioSolicitante);
 	}
 
+	public String inserir(){
+		pedidoDAO.salvar(pedido);
+		return "Cadastrado com sucesso";
+	}
+	
 	public Pedido getPedido() {
 		return pedido;
 	}
