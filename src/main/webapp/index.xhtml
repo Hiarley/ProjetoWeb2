@@ -1,37 +1,43 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	template="/include/template.xhtml">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui">
 
-	<ui:define name="titulo">
-		<title>Login</title>
-	</ui:define>
+<h:head>
+	<title>Login</title>
+</h:head>
 
-	<ui:define name="conteudo">
-		<h:form>
-			<h1>Bem-vindo!</h1>
-
+<h:body
+	style="padding: 50px 50px 50px 50px; margin: 0 auto; text-align:center;">
+	<h:form>
+		<b:row>
+			<b:inputText value="#{usuarioMB.usuario.login}" required="true"
+				requiredMessage="Login obrigatória" placeholder="Usuário" span="4"
+				offset="4">
+				<f:facet name="prepend">
+					<b:icon name="user" />
+				</f:facet>
+			</b:inputText>
+		</b:row>
+		<b:row>
+			<b:inputSecret value="#{usuarioMB.usuario.senha}" required="true"
+				requiredMessage="Senha obrigatória" placeholder="Senha" span="4"
+				offset="4">
+				<f:facet name="prepend">
+					<b:iconAwesome name="key" />
+				</f:facet>
+			</b:inputSecret>
+		</b:row>
+		<b:row>
 			<h:messages />
-			<fieldset>
-				<p>Nome:</p>
-				<h:inputText value="#{produtoMB.produto.nome}" required="true"
-					requiredMessage="Login obrigatório" />
+		</b:row>
+		<b:row>
+			<b:commandButton action="#{usuarioMB.login}"  value="Entrar"
+				look="info" icon="chevron-right" iconAlign="right" />
+		</b:row>
+	</h:form>
+</h:body>
 
-
-				<p>Preço:</p>
-				<p>
-					<h:inputText value="#{produtoMB.produto.preco}" required="true"
-						requiredMessage="Senha obrigatória" />
-				</p>
-				<p>Descrição:</p>
-				<h:inputText value="#{produtoMB.produto.descricao}" required="true"
-					requiredMessage="Login obrigatório" />
-
-
-				<h:commandButton action="#{produtoMB.inserir}" value="Login" />
-				
-			</fieldset>
-		</h:form>
-	</ui:define>
-</ui:composition>
+</html>

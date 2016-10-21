@@ -15,36 +15,37 @@
 			CADASTRAR USUÁRIO
 			<hr />
 			<h:form>
-
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Nome:" />
-					<b:inputText value="#{usuarioMB.usuario.nome}" required="true"
-						requiredMessage="Nome obrigatório" />
+					<b:inputText value="#{usuarioMB.usuario.nome}" />
 					<h:outputLabel value="CPF:" />
-					<b:inputText value="#{usuarioMB.usuario.cpf}" required="true"
-						requiredMessage="CPF obrigatório" />
-					<h:outputLabel value="Endereço:" />
-					<b:inputText value="#{usuarioMB.usuario.endereco}" required="true"
-						requiredMessage="Endereço obrigatório" />
+					<b:inputText value="#{usuarioMB.usuario.cpf}" />
 					<h:outputLabel value="Telefone:" />
-					<b:inputText value="#{usuarioMB.usuario.telefone}" required="true"
-						requiredMessage="Telefone obrigatório" />
+					<b:inputText value="#{usuarioMB.usuario.endereco}" />
+					<h:outputLabel value="Endereço:" />
+					<b:inputText value="#{usuarioMB.usuario.telefone}" />
 					<h:outputLabel value="Username:" />
-					<b:inputText value="#{usuarioMB.usuario.login}" required="true"
-						requiredMessage="Login obrigatório" />
+					<b:inputText value="#{usuarioMB.usuario.login}" />
 					<h:outputLabel value="Senha:" />
-					<b:inputText value="#{usuarioMB.usuario.senha}" required="true"
-						requiredMessage="Senha obrigatório" />
+					<b:inputText value="#{usuarioMB.usuario.senha}" />
+					<h:outputLabel value="Tipo:" />
+					<b:selectOneMenu value="#{usuarioMB.usuario.tipoUsuario}" id="tipo">
+						<f:selectItem itemLabel="Cliente" itemValue="0" />
+						<f:selectItem itemLabel="Usuário" itemValue="1" />
+						<f:selectItem itemLabel="Gerente" itemValue="2" />
+						<f:selectItem itemLabel="Administrador" itemValue="3" />
+					</b:selectOneMenu>
 				</h:panelGrid>
-				<p />
-				<b:row>
-					<h:messages />
-				</b:row>
-				<h:commandButton action="#{usuarioMB.cadastrarUsuario}"
-					value="Cadastrar!" />
-				<b:button action="#{usuarioMB.cadastrarUsuario}" value="Cadastrar!" />
 			</h:form>
-
+			<b:row>
+				<h:form>
+					<b:buttonGroup>
+						<b:commandButton action="#{usuarioMB.cadastrarUsuario}"
+							value="Cadastrar usuário" look="success" />
+						<b:button outcome="painel.jsf" value="Voltar ao painel" />
+					</b:buttonGroup>
+				</h:form>
+			</b:row>
 		</center>
 	</b:container>
 </h:body>

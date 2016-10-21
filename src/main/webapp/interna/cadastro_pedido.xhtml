@@ -24,8 +24,15 @@
 					<b:inputText value="#{pedidoMB.pedido.status}" />
 				</h:panelGrid>
 			</h:form>
-			<p />
-			<b:button value="Cadastrar pedido" look="warning" />
+			<b:row>
+				<h:form>
+					<b:buttonGroup>
+						<b:commandButton action="#{pedidoMB.inserir}"
+							value="Cadastrar pedido" look="warning" />
+						<b:button outcome="painel.jsf" value="Voltar ao painel" />
+					</b:buttonGroup>
+				</h:form>
+			</b:row>
 		</center>
 	</b:container>
 </h:body>
