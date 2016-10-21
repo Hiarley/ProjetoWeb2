@@ -36,16 +36,12 @@
 						<f:selectItem itemLabel="Administrador" itemValue="3" />
 					</b:selectOneMenu>
 				</h:panelGrid>
+				<b:buttonGroup>
+					<b:commandButton action="#{usuarioMB.cadastrarUsuario}"
+						value="Cadastrar usuário" look="success" />
+					<b:button outcome="painel.jsf" value="Voltar ao painel" />
+				</b:buttonGroup>
 			</h:form>
-			<b:row>
-				<h:form>
-					<b:buttonGroup>
-						<b:commandButton action="#{usuarioMB.cadastrarUsuario}"
-							value="Cadastrar usuário" look="success" />
-						<b:button outcome="painel.jsf" value="Voltar ao painel" />
-					</b:buttonGroup>
-				</h:form>
-			</b:row>
 		</center>
 	</b:container>
 </h:body>
