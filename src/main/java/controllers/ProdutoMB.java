@@ -31,7 +31,7 @@ public class ProdutoMB {
 	public String inserir(){
 		produto.setPrazo(new Date());
 		produtoDAO.salvar(produto);
-		return "Cadastrado com sucesso";
+		return "/interna/cadastro_sucesso.jsf";
 	}
 	
 	public Produto getProduto() {

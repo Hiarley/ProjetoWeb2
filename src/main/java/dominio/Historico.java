@@ -2,7 +2,6 @@ package dominio;
 
 import java.util.Date;
 
-import javax.interceptor.AroundInvoke;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

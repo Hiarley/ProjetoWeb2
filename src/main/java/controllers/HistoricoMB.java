@@ -22,11 +22,6 @@ public class HistoricoMB {
 		historico = new Historico();
 		listaHistoricos = new ArrayList<Historico>();
 	}
-	
-	public String inserir(){
-		historicoDAO.salvar(historico);
-		return "Cadastro com sucesso";
-	}
 
 	public Historico getHistorico() {
 		return historico;

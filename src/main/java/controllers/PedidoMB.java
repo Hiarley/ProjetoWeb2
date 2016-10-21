@@ -9,31 +9,29 @@ import javax.inject.Inject;
 import dao.PedidoDAO;
 import dominio.Pedido;
 
-
 @ManagedBean
 public class PedidoMB {
 
-	
-private Pedido pedido;
-	
+	private Pedido pedido;
+
 	@Inject
 	private PedidoDAO pedidoDAO;
 	private List<Pedido> listaPedidos;
-	
-	public PedidoMB(){
+
+	public PedidoMB() {
 		pedido = new Pedido();
 		listaPedidos = new ArrayList<Pedido>();
 	}
 
-	public Pedido getPedido(String usuarioSolicitante){
+	public Pedido getPedido(String usuarioSolicitante) {
 		return pedidoDAO.buscarUsuarioSolicitanteNome(usuarioSolicitante);
 	}
 
-	public String inserir(){
+	public String inserir() {
 		pedidoDAO.salvar(pedido);
 		return "Cadastrado com sucesso";
 	}
-	
+
 	public Pedido getPedido() {
 		return pedido;
 	}
@@ -49,6 +47,5 @@ private Pedido pedido;
 	public void setListaPedidos(List<Pedido> listaPedidos) {
 		this.listaPedidos = listaPedidos;
 	}
-	
-	
+
 }

@@ -15,29 +15,30 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_usuario", unique = true, nullable = false)
 	private long id;
-	
-	@Column(name = "nome", nullable=false)
+
+	@Column(name = "nome", nullable = false)
 	private String nome;
 
-	@Column(name = "endereco", nullable=false)
+	@Column(name = "endereco", nullable = false)
 	private String endereco;
 
-	@Column(name = "telefone", nullable=false)
+	@Column(name = "telefone", nullable = false)
 	private String telefone;
 
-	@Column(name = "login", nullable=false)
+	@Column(name = "login", nullable = false)
 	private String login;
 
-	@Column(name = "senha", nullable=false)
+	@Column(name = "senha", nullable = false)
 	private String senha;
-	
+
 	@Column(name = "cpf", nullable = false)
 	private String cpf;
-	
+
 	@Column(name = "tipoUsuario", nullable = false)
 	private int tipoUsuario;
 
-	public Usuario(String nome, String cpf, int tipoUsuario, String endereco, String telefone, String login, String senha) {
+	public Usuario(String nome, String cpf, int tipoUsuario, String endereco, String telefone, String login,
+			String senha) {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -155,7 +156,5 @@ public class Usuario {
 	public void setTipoUsuario(int tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
-	
-	
 
 }
