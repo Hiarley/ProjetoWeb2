@@ -25,16 +25,12 @@
 					<h:outputLabel value="Data:" />
 					<b:inputText value="#{produtoMB.produto.prazo}" />
 				</h:panelGrid>
+				<b:buttonGroup>
+					<b:commandButton action="#{produtoMB.inserir}"
+						value="Cadastrar produto" look="primary" />
+					<b:button outcome="painel.jsf" value="Voltar ao painel" />
+				</b:buttonGroup>
 			</h:form>
-			<b:row>
-				<h:form>
-					<b:buttonGroup>
-						<b:commandButton action="#{produtoMB.inserir}"
-							value="Cadastrar produto" look="primary" />
-						<b:button outcome="painel.jsf" value="Voltar ao painel" />
-					</b:buttonGroup>
-				</h:form>
-			</b:row>
 		</center>
 	</b:container>
 </h:body>
