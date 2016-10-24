@@ -28,6 +28,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hiarl/git/ProjetoWeb2/BootsFaces-OSP-0.9.1-dist.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Eduardo/Documents/GitHub/ProjetoWeb2/BootsFaces-OSP-0.9.1-dist.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

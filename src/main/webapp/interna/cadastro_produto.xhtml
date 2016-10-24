@@ -22,8 +22,10 @@
 					<b:inputText value="#{produtoMB.produto.preco}" />
 					<h:outputLabel value="Descrição:" />
 					<b:inputText value="#{produtoMB.produto.descricao}" />
-					<h:outputLabel value="Data:" />
-					<b:inputText value="#{produtoMB.produto.prazo}" />
+					<h:outputLabel value="Prazo:" />
+					<b:inputText value="#{produtoMB.produto.prazo}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</b:inputText>
 				</h:panelGrid>
 				<b:buttonGroup>
 					<b:commandButton action="#{produtoMB.inserir}"
