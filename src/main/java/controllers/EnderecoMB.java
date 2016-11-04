@@ -3,8 +3,10 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.inject.Inject;
 
+import Service.EnderecoService;
 import dao.EnderecoDAO;
 import dominio.Endereco;
 
@@ -12,8 +14,10 @@ public class EnderecoMB {
 
 	private Endereco endereco;
 
+	@EJB
+	EnderecoService enderecoService;
+	
 	@Inject
-	private EnderecoDAO enderecoDAO;
 	private List<Endereco> listaEnderecos;
 
 	public EnderecoMB() {
@@ -22,7 +26,7 @@ public class EnderecoMB {
 	}
 
 	public String inserir(){
-		enderecoDAO.salvar(endereco);
+		enderecoService.cadastrarEndereco(endereco);;
 		return "Cadastrado com sucesso";
 	}
 
@@ -38,7 +42,7 @@ public class EnderecoMB {
 
 
 	public List<Endereco> getListaEnderecos() {
-		setListaEnderecos(enderecoDAO.listar());
+		setListaEnderecos(enderecoService.listar());
 		return listaEnderecos;
 	}
 

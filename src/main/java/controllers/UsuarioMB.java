@@ -3,12 +3,15 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import Service.LoginService;
+import Service.UsuarioService;
 import dao.UsuarioDAO;
 import dominio.Usuario;
 
@@ -17,8 +20,11 @@ import dominio.Usuario;
 public class UsuarioMB {
 	private Usuario usuario;
 
+	@EJB
+	private LoginService loginService;
+	private UsuarioService usuarioService;
+	
 	@Inject
-	private UsuarioDAO usuarioDAO;
 	private List<Usuario> listaUsuarios;
 
 	public UsuarioMB() {
@@ -31,7 +37,7 @@ public class UsuarioMB {
 	}
 
 	public Usuario getUsuario(String login) {
-		return usuarioDAO.buscarLogin(login);
+		return usuarioService.getLogin(login);
 	}
 
 	public void setUsuario(Usuario usuario) {
@@ -39,7 +45,7 @@ public class UsuarioMB {
 	}
 
 	public List<Usuario> getListaUsuarios() {
-		setListaUsuarios(usuarioDAO.listar());
+		setListaUsuarios(usuarioService.listarUsuario());
 		return listaUsuarios;
 	}
 
@@ -49,15 +55,32 @@ public class UsuarioMB {
 
 	public String cadastrarUsuario() {
 		usuario.setTipoUsuario(1);
-		usuarioDAO.salvar(usuario);
+		usuarioService.cadastrarUsuario(usuario);
 		return "/interna/cadastro_sucesso.jsf";
 	}
 
 	public String login() {
-		if (usuario.getLogin().equals("admin") && usuario.getSenha().equals("admin")) {
+		int res = loginService.login(usuario.getLogin(), usuario.getSenha()); 
+		if (res == 1) {
 			return "/interna/painel.jsf";
-		} else {
+		}
+		else if(res == 2){
+			return "/interna/painel.jsf";
+		}
+		else if(res == 3){
+			return "/interna/painel.jsf";
+		} 
+		else if(res == 4){
+			return "/interna/painel.jsf";
+		}
+		else if (res == -1){
 			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			FacesContext.getCurrentInstance().addMessage("", msg);
+			return null;
+		}
+		else{
+			FacesMessage msg = new FacesMessage("Usuario inexistente");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
