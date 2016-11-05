@@ -5,6 +5,11 @@
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="ServiceDS" transaction-type="JTA">
 		<jta-data-source>java:/ServiceDS</jta-data-source>
+		<class>dominio.Endereco</class>
+		<class>dominio.Historico</class>
+		<class>dominio.Pedido</class>
+		<class>dominio.Produto</class>
+		<class>dominio.Usuario</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />

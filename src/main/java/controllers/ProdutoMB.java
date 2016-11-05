@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
+import Service.ProdutoService;
 import dao.ProdutoDAO;
 import dominio.Produto;
 
@@ -18,8 +20,10 @@ public class ProdutoMB {
 	
 	private Produto produto;
 	
+	@EJB
+	private ProdutoService produtoService;
+	
 	@Inject
-	private ProdutoDAO produtoDAO;
 	private List<Produto> listaProdutos;
 	
 	
@@ -30,7 +34,7 @@ public class ProdutoMB {
 	
 	public String inserir(){
 		produto.setPrazo(new Date());
-		produtoDAO.salvar(produto);
+		produtoService.cadastrarProduto(produto);
 		return "/interna/cadastro_sucesso.jsf";
 	}
 	
@@ -39,7 +43,7 @@ public class ProdutoMB {
 	}
 	
 	public Produto getProduto(String nome) {
-		return produtoDAO.buscarProdutoNome(nome);
+		return produtoService.buscarProdutoNome(nome);
 	}
 
 	public void setProduto(Produto produto) {
@@ -47,7 +51,7 @@ public class ProdutoMB {
 	}
 	
 	public List<Produto> getListaProdutos() {
-		setListaProdutos(produtoDAO.listar());
+		setListaProdutos(produtoService.listar());
 		return listaProdutos;
 	}
 

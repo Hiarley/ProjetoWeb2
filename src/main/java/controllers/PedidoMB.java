@@ -3,19 +3,22 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-import dao.PedidoDAO;
+import Service.PedidoService;
 import dominio.Pedido;
 
 @ManagedBean
 public class PedidoMB {
 
 	private Pedido pedido;
+	
+	@EJB
+	private PedidoService pedidoService;
 
 	@Inject
-	private PedidoDAO pedidoDAO;
 	private List<Pedido> listaPedidos;
 
 	public PedidoMB() {
@@ -24,11 +27,11 @@ public class PedidoMB {
 	}
 
 	public Pedido getPedido(String usuarioSolicitante) {
-		return pedidoDAO.buscarUsuarioSolicitanteNome(usuarioSolicitante);
+		return pedidoService.getUsuarioSolicitante(usuarioSolicitante);
 	}
 
 	public String inserir() {
-		pedidoDAO.salvar(pedido);
+		pedidoService.cadastrarPedido(pedido);;
 		return "Cadastrado com sucesso";
 	}
 
@@ -41,6 +44,7 @@ public class PedidoMB {
 	}
 
 	public List<Pedido> getListaPedidos() {
+		setListaPedidos(pedidoService.listar());
 		return listaPedidos;
 	}
 
