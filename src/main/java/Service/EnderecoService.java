@@ -3,6 +3,8 @@ package Service;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import dao.EnderecoDAO;
@@ -15,6 +17,7 @@ public class EnderecoService {
 	@Inject
 	private EnderecoDAO enderecoDAO;
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarEndereco(Endereco endereco){
 		enderecoDAO.salvar(endereco);
 	}

@@ -3,6 +3,8 @@ package Service;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import dao.PedidoDAO;
@@ -21,7 +23,7 @@ public class PedidoService {
 		return pedidoDAO.buscarUsuarioSolicitanteNome(nome);
 	}
 	
-	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarPedido(Pedido pedido){
 		pedidoDAO.salvar(pedido);
 	}

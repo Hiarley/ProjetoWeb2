@@ -4,6 +4,8 @@ package Service;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import dao.UsuarioDAO;
@@ -15,6 +17,8 @@ public class UsuarioService {
 	@Inject
 	private UsuarioDAO usuarioDAO;
 	
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarUsuario(Usuario usuario){
 		Usuario u = usuarioDAO.buscarLogin(usuario.getLogin());
 		if(u == null)
@@ -23,6 +27,7 @@ public class UsuarioService {
 			usuarioDAO.atualizar(usuario);
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Usuario getLogin(String login){
 		return usuarioDAO.buscarLogin(login);
 	}

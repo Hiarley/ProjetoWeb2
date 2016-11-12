@@ -3,6 +3,8 @@ package Service;
 import java.util.List;
 
 import javax.ejb.Stateful;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import dao.ProdutoDAO;
@@ -18,6 +20,7 @@ public class ProdutoService {
 		return produtoDAO.buscarProdutoNome(nome);
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void cadastrarProduto(Produto produto){
 		produtoDAO.salvar(produto);
 	}
