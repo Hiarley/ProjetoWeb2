@@ -16,6 +16,7 @@ public class ProdutoService {
 	@Inject
 	private ProdutoDAO produtoDAO;
 	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public Produto buscarProdutoNome(String nome){
 		return produtoDAO.buscarProdutoNome(nome);
 	}
