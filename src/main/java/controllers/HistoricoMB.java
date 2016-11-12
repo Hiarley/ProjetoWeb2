@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import Service.HistoricoService;
 import dominio.Historico;
@@ -18,7 +19,7 @@ public class HistoricoMB {
 	@EJB
 	private HistoricoService historicoService;
 	
-	@Inject
+	
 	private List<Historico> listaHistoricos;
 
 	public HistoricoMB() {

@@ -15,7 +15,6 @@ public class LoginService {
 	private UsuarioDAO usuarioDAO;
 	
 	
-	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public int login(String l, String s){
 		Usuario u = usuarioDAO.buscarLogin(l);
 		if(u != null){

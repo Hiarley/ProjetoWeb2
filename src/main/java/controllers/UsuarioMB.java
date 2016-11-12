@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import Service.LoginService;
 import Service.UsuarioService;
@@ -23,8 +24,8 @@ public class UsuarioMB {
 	@EJB
 	private LoginService loginService;
 	private UsuarioService usuarioService;
+
 	
-	@Inject
 	private List<Usuario> listaUsuarios;
 
 	public UsuarioMB() {
@@ -60,7 +61,7 @@ public class UsuarioMB {
 	}
 
 	public String login() {
-		int res = loginService.login(usuario.getLogin(), usuario.getSenha()); 
+		int res = loginService.login(usuario.getLogin(), usuario.getSenha());
 		if (res == 1) {
 			return "/interna/painel.jsf";
 		}

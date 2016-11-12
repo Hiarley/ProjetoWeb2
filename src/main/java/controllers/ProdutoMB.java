@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import Service.ProdutoService;
 import dao.ProdutoDAO;
@@ -23,7 +24,7 @@ public class ProdutoMB {
 	@EJB
 	private ProdutoService produtoService;
 	
-	@Inject
+	
 	private List<Produto> listaProdutos;
 	
 	

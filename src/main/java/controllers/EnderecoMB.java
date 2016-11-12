@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import Service.EnderecoService;
 import dao.EnderecoDAO;
 import dominio.Endereco;
-
+@ManagedBean
 public class EnderecoMB {
 
 	private Endereco endereco;
@@ -17,7 +19,6 @@ public class EnderecoMB {
 	@EJB
 	EnderecoService enderecoService;
 	
-	@Inject
 	private List<Endereco> listaEnderecos;
 
 	public EnderecoMB() {

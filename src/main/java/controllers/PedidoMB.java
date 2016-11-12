@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import Service.PedidoService;
 import dominio.Pedido;
@@ -18,7 +19,7 @@ public class PedidoMB {
 	@EJB
 	private PedidoService pedidoService;
 
-	@Inject
+	
 	private List<Pedido> listaPedidos;
 
 	public PedidoMB() {
