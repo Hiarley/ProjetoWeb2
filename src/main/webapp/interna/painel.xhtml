@@ -6,29 +6,39 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-	<title>Painel de Controle</title>
+	<title>+plusMANAGER - Painel de Controle</title>
 </h:head>
 
 <h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
 	<b:container>
 		<center>
 			<b:row>
-				<h3>PAINEL DE CONTROLE ADMINISTRATIVO</h3>
+				<b:image value="../images/logo.png" />
+				<hr />
+				<h4>PAINEL DE CONTROLE DE #{usuarioMB.usuario.getNome}</h4>
 			</b:row>
 			<hr />
 			<b:row>
 				<b:buttonGroup>
-					<b:button outcome="cadastro_usuario.jsf" value="Cadastrar usuário" look="success" />
-					<b:button outcome="cadastro_produto.jsf" value="Cadastrar produto" look="primary" />
-					<b:button outcome="cadastro_pedido.jsf" value="Cadastrar pedido" look="warning" />
+					<b:button outcome="cadastro_usuario.jsf" value="Cadastrar usuário"
+						look="success" rendered="#{usuarioMB.login == '3'}" />
+					<b:button outcome="cadastro_produto.jsf" value="Cadastrar produto"
+						look="primary"
+						rendered="#{usuarioMB.login == '3' or usuarioMB.login == '2'}" />
+					<b:button outcome="cadastro_pedido.jsf" value="Cadastrar pedido"
+						look="warning" />
 				</b:buttonGroup>
 			</b:row>
 			<hr />
 			<b:row>
 				<b:buttonGroup>
-					<b:button outcome="lista_usuarios.jsf" value="Listar usuários" look="success" />
-					<b:button outcome="lista_produtos.jsf" value="Listar produtos" look="primary" />
-					<b:button outcome="lista_pedidos.jsf" value="Listar pedidos" look="warning" />
+					<b:button outcome="lista_usuarios.jsf" value="Listar usuários"
+						look="success" rendered="#{usuarioMB.login == '3'}" />
+					<b:button outcome="lista_produtos.jsf" value="Listar produtos"
+						look="primary"
+						rendered="#{usuarioMB.login == '3' or usuarioMB.login == '2'}" />
+					<b:button outcome="lista_pedidos.jsf" value="Listar pedidos"
+						look="warning" />
 				</b:buttonGroup>
 			</b:row>
 			<hr />

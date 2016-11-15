@@ -6,12 +6,14 @@
 	xmlns:b="http://bootsfaces.net/ui">
 
 <h:head>
-	<title>Cadastrar produto</title>
+	<title>+plusMANAGER - Cadastrar produto</title>
 </h:head>
 
 <h:body style="padding: 50px 50px 50px 50px; margin: 0 auto;">
 	<b:container>
 		<center>
+			<b:image value="../images/logo.png" />
+			<hr />
 			CADASTRAR PRODUTO
 			<hr />
 			<h:form>
@@ -22,10 +24,10 @@
 					<b:inputText value="#{produtoMB.produto.preco}" />
 					<h:outputLabel value="Descrição:" />
 					<b:inputText value="#{produtoMB.produto.descricao}" />
-					<!-- <h:outputLabel value="Prazo:" />
-					<b:inputText value="#{produtoMB.produto.prazo}">
-						<f:convertDateTime pattern="dd/MM/yyyy" />
-					</b:inputText> -->
+					<h:outputLabel value="Prazo:" />
+					<b:inputText value="#{produtoMB.produto.prazo}" type="date">
+						<!-- <f:convertDateTime pattern="dd/MM/yyyy" /> -->
+					</b:inputText>
 				</h:panelGrid>
 				<b:buttonGroup>
 					<b:commandButton action="#{produtoMB.inserir}"

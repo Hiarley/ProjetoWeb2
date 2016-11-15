@@ -62,26 +62,26 @@ public class UsuarioMB {
 
 	public String login() {
 		int res = loginService.login(usuario.getLogin(), usuario.getSenha());
-		if (res == 1) {
-			return "/interna/painel.jsf";
+		if (res == 0) {
+			return "0";
+		}
+		else if(res == 1){
+			return "1";
 		}
 		else if(res == 2){
-			return "/interna/painel.jsf";
-		}
-		else if(res == 3){
-			return "/interna/painel.jsf";
+			return "2";
 		} 
-		else if(res == 4){
-			return "/interna/painel.jsf";
+		else if(res == 3){
+			return "3";
 		}
 		else if (res == -1){
-			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
+			FacesMessage msg = new FacesMessage("Usuário e/ou senha incorretos.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
 		}
 		else{
-			FacesMessage msg = new FacesMessage("Usuario inexistente");
+			FacesMessage msg = new FacesMessage("Usuário não existe na base de dados.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
