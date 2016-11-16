@@ -62,19 +62,10 @@ public class UsuarioMB {
 
 	public String login() {
 		int res = loginService.login(usuario.getLogin(), usuario.getSenha());
-		/*if (res == 0) {
-			return "0";
+		if (res == 1) {
+			return "/interna/painel.jsf";
 		}
-		else if(res == 1){
-			return "1";
-		}
-		else if(res == 2){
-			return "2";
-		} 
-		else if(res == 3){
-			return "3";
-		}
-		else*/ if (res == -1){
+		else if (res == -1){
 			FacesMessage msg = new FacesMessage("Usuário e/ou senha incorretos.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);

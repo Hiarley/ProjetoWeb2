@@ -19,18 +19,7 @@ public class LoginService {
 		Usuario u = usuarioDAO.buscarLogin(l);
 		if(u != null){
 			if(u.getSenha().equals(s)){
-				if(u.getTipoUsuario() == 0){
-					return 0;
-				}
-				else if(u.getTipoUsuario() == 1){
-					return 1;
-				}
-				else if(u.getTipoUsuario() == 2){
-					return 2;
-				}
-				else{
-					return 3;
-				}
+				return 1;
 			}
 			else
 				return 4;
