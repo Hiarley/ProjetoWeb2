@@ -50,13 +50,12 @@ public class UsuarioDAO {
 	
 	public Usuario buscarLogin(String login) {
 		String qs = "select u from Usuario u where u.login = :login";
-		  Query q = em.createQuery(qs);
-		  q.setParameter("login", login);
-		  try {
-		   return (Usuario) q.getSingleResult();
-		  } catch (NoResultException e) {
-		   return null;
-		  }
-	}
+		Query q = em.createQuery(qs);
+		q.setParameter("login", login);
+		try {
+			return (Usuario) q.getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}	}
 	
 }

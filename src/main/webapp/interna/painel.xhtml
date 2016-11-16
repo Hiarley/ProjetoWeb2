@@ -21,10 +21,10 @@
 			<b:row>
 				<b:buttonGroup>
 					<b:button outcome="cadastro_usuario.jsf" value="Cadastrar usuário"
-						look="success" rendered="#{usuarioMB.login == '3'}" />
+						look="success" rendered="#{usuarioMB.usuario.getTipoUsuario = 3}" />
 					<b:button outcome="cadastro_produto.jsf" value="Cadastrar produto"
 						look="primary"
-						rendered="#{usuarioMB.login == '3' or usuarioMB.login == '2'}" />
+						rendered="#{usuarioMB.usuario.getTipoUsuario = 3 or usuarioMB.usuario.getTipoUsuario = 2}" />
 					<b:button outcome="cadastro_pedido.jsf" value="Cadastrar pedido"
 						look="warning" />
 				</b:buttonGroup>
@@ -33,10 +33,10 @@
 			<b:row>
 				<b:buttonGroup>
 					<b:button outcome="lista_usuarios.jsf" value="Listar usuários"
-						look="success" rendered="#{usuarioMB.login == '3'}" />
+						look="success" rendered="#{usuarioMB.usuario.getTipoUsuario = 3}" />
 					<b:button outcome="lista_produtos.jsf" value="Listar produtos"
 						look="primary"
-						rendered="#{usuarioMB.login == '3' or usuarioMB.login == '2'}" />
+						rendered="#{usuarioMB.usuario.getTipoUsuario = 3 or usuarioMB.usuario.getTipoUsuario = 2}" />
 					<b:button outcome="lista_pedidos.jsf" value="Listar pedidos"
 						look="warning" />
 				</b:buttonGroup>
