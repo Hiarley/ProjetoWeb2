@@ -75,6 +75,7 @@ public class UsuarioMB {
 			FacesMessage msg = new FacesMessage("Usuário não existe na base de dados.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
+			FacesContext.getCurrentInstance().getAttributes();
 			return null;
 		}
 	}
