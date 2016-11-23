@@ -10,10 +10,13 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import Service.LoginService;
 import Service.UsuarioService;
 import dao.UsuarioDAO;
+import dominio.SessionContext;
 import dominio.Usuario;
 
 @ManagedBean
@@ -25,7 +28,6 @@ public class UsuarioMB {
 	private LoginService loginService;
 	private UsuarioService usuarioService;
 
-	
 	private List<Usuario> listaUsuarios;
 
 	public UsuarioMB() {
@@ -59,19 +61,22 @@ public class UsuarioMB {
 		usuarioService.cadastrarUsuario(usuario);
 		return "/interna/cadastro_sucesso.jsf";
 	}
+	
+    public Usuario getUser() {
+        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
+     }
 
 	public String login() {
 		int res = loginService.login(usuario.getLogin(), usuario.getSenha());
 		if (res == 1) {
+			SessionContext.getInstance().setAttribute("usuarioLogado", usuario);
 			return "/interna/painel.jsf";
-		}
-		else if (res == -1){
+		} else if (res == -1) {
 			FacesMessage msg = new FacesMessage("Usuário e/ou senha incorretos.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
-		}
-		else{
+		} else {
 			FacesMessage msg = new FacesMessage("Usuário não existe na base de dados.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
@@ -79,4 +84,6 @@ public class UsuarioMB {
 			return null;
 		}
 	}
+
+
 }
