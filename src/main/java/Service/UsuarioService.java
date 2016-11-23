@@ -36,4 +36,20 @@ public class UsuarioService {
 		return usuarioDAO.listar();
 	}
 	
+
+	
+	
+	public int login(String l, String s){
+		Usuario u = usuarioDAO.buscarLogin(l);
+		if(u != null){
+			if(u.getSenha().equals(s)){
+				return u.getTipoUsuario();
+			}
+			else
+				return 4;
+		}
+		else return -1;
+	}
+	
+	
 }

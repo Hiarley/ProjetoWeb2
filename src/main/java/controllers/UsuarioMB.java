@@ -8,15 +8,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
-import javax.inject.Named;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
-import Service.LoginService;
 import Service.UsuarioService;
-import dao.UsuarioDAO;
-import dominio.SessionContext;
 import dominio.Usuario;
 
 @ManagedBean
@@ -25,7 +18,6 @@ public class UsuarioMB {
 	private Usuario usuario;
 
 	@EJB
-	private LoginService loginService;
 	private UsuarioService usuarioService;
 
 	private List<Usuario> listaUsuarios;
@@ -62,15 +54,12 @@ public class UsuarioMB {
 		return "/interna/cadastro_sucesso.jsf";
 	}
 	
-    public Usuario getUser() {
-        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
-     }
 
 	public String login() {
-		int res = loginService.login(usuario.getLogin(), usuario.getSenha());
-		if (res == 1) {
-			SessionContext.getInstance().setAttribute("usuarioLogado", usuario);
-			return "/interna/painel.jsf";
+		int res = usuarioService.login(usuario.getLogin(), usuario.getSenha());
+		System.out.println(res);
+		if (res == 0 || res == 1 || res == 2 || res == 3 ) {
+			return "/interna/painel"+res+".jsf";
 		} else if (res == -1) {
 			FacesMessage msg = new FacesMessage("Usuário e/ou senha incorretos.");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);

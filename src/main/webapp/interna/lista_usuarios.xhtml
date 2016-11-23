@@ -16,7 +16,7 @@
 			<hr />
 			LISTA DE USUÁRIOS CADASTRADOS
 			<hr />
-			<b:dataTable value="#{usuarioMB.listaUsuarios}" var="usuario"
+			<b:dataTable value="#{usuarioMB.getListaUsuarios()}" var="usuario"
 				fixedHeader="true" scroll-size="400px" scroll-x="false"
 				responsive="true" searching="false">
 				<h:column value="#{usuario.nome}" />
